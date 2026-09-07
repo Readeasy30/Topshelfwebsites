@@ -5,43 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Top Shelf Websites</title>
     <style>
-        /* Modern Minimalist Reset & Variables */
+        /* Warm & Welcoming Reset & Design Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text-dark: #334155;
-            --text-light: #64748b;
+            --primary: #e11d48; /* Warm Rose Accent */
+            --primary-hover: #be123c;
+            --accent: #f59e0b; /* Sunny Warm Gold */
+            --dark: #1e1b4b; /* Deep Cozy Navy */
+            --light: #fffbeb; /* Soft Cream Warm Background */
+            --text-dark: #374151; /* Soft Charcoal */
+            --text-light: #4b5563; /* Warm Muted Gray */
             --white: #ffffff;
-            --border: #e2e8f0;
+            --border: #f3f4f6;
+            --shadow-soft: 0 10px 30px -5px rgba(225, 29, 72, 0.04), 0 8px 20px -6px rgba(0, 0, 0, 0.03);
         }
 
         body {
             background-color: var(--light);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Navigation Header */
         header {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background-color: rgba(255, 253, 245, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(217, 119, 6, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -52,68 +55,77 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--dark);
             text-decoration: none;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "✨";
+            font-size: 18px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-light);
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--dark);
+            color: var(--primary);
         }
 
         /* Page Hero Section */
         .page-title-section {
-            padding: 160px 0 60px 0;
-            background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
+            padding: 180px 0 80px 0;
+            background: radial-gradient(circle at top right, #fff7ed 0%, var(--light) 100%);
             text-align: center;
-            border-bottom: 1px solid var(--border);
         }
 
         .page-title-section h1 {
-            font-size: 40px;
-            font-weight: 800;
+            font-size: 46px;
+            font-weight: 900;
             color: var(--dark);
             letter-spacing: -1px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .page-title-section p {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--text-light);
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        /* Main Content Breakdown */
+        /* Services Content Section */
         .services-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--white);
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 30px rgba(30, 27, 75, 0.02);
         }
 
         .service-row {
             display: flex;
             align-items: center;
-            gap: 64px;
+            gap: 80px;
             padding: 60px 0;
             border-bottom: 1px solid var(--border);
         }
@@ -130,17 +142,30 @@
             flex: 1;
         }
 
-        .service-content h2 {
-            font-size: 28px;
-            color: var(--dark);
+        .service-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: #fff7ed;
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
             margin-bottom: 16px;
+            border: 1px solid #fef3c7;
+        }
+
+        .service-content h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 20px;
             letter-spacing: -0.5px;
+            font-weight: 800;
         }
 
         .service-content p {
             color: var(--text-dark);
-            margin-bottom: 24px;
-            font-size: 16px;
+            margin-bottom: 28px;
+            font-size: 17px;
         }
 
         .feature-list {
@@ -149,60 +174,64 @@
 
         .feature-list li {
             position: relative;
-            padding-left: 24px;
-            margin-bottom: 12px;
+            padding-left: 28px;
+            margin-bottom: 16px;
             color: var(--text-light);
-            font-size: 15px;
+            font-size: 16px;
         }
 
         .feature-list li::before {
-            content: "✓";
+            content: "🌸"; /* Softer, friendlier visual bullet */
             position: absolute;
             left: 0;
-            color: var(--primary);
-            font-weight: bold;
+            font-size: 14px;
+            top: 1px;
         }
 
-        /* Secondary Call to Action */
+        /* Friendly Banner */
         .cta-banner {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--light);
             text-align: center;
             border-top: 1px solid var(--border);
         }
 
         .cta-banner h3 {
-            font-size: 28px;
+            font-size: 32px;
             color: var(--dark);
             margin-bottom: 16px;
+            font-weight: 800;
         }
 
         .btn {
             display: inline-block;
-            padding: 14px 28px;
-            border-radius: 8px;
+            padding: 16px 36px;
+            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             background-color: var(--primary);
             color: var(--white);
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
             border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(225, 29, 72, 0.3);
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 50px 0;
             background-color: var(--white);
             border-top: 1px solid var(--border);
             text-align: center;
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-light);
         }
 
@@ -210,7 +239,7 @@
         @media (max-width: 768px) {
             .service-row, .service-row:nth-child(even) {
                 flex-direction: column;
-                gap: 32px;
+                gap: 40px;
                 padding: 40px 0;
             }
             .nav-links { display: none; }
@@ -235,24 +264,25 @@
     <!-- Page Title -->
     <section class="page-title-section">
         <div class="container">
-            <h1>Digital Systems Infrastructure</h1>
-            <p>High-performance web solutions built specifically to support scalable operations and modern delivery systems.</p>
+            <h1>What We Do Best</h1>
+            <p>We combine clean engineering with thoughtful design to build beautiful tools that take your business to the next level.</p>
         </div>
     </section>
 
-    <!-- Services Detailed Grid -->
+    <!-- Services Section -->
     <section class="services-section">
         <div class="container">
             
             <!-- Service 1 -->
             <div class="service-row">
                 <div class="service-content">
-                    <h2>Static Architecture & Edge Hosting</h2>
-                    <p>We deploy production infrastructure leveraging decoupled, ultra-light static architectures. By utilizing edge platforms, sites boast instantaneous loading velocities without complex server database configurations.</p>
+                    <span class="service-badge">Performance</span>
+                    <h2>Beautiful Sites That Load Instantly</h2>
+                    <p>Nobody likes to wait on a loading screen. We build blazing-fast static sites hosted directly at the network edge, giving your visitors a seamless, immediate browsing experience every time.</p>
                     <ul class="feature-list">
-                        <li>Global CDN caching with zero database lag</li>
-                        <li>Automated builds compiled clean at the edge</li>
-                        <li>Robust fallback safety structures</li>
+                        <li>Global cloud delivery networks for peak responsiveness</li>
+                        <li>Sleek formatting optimized for perfect mobile display</li>
+                        <li>Sturdy architecture that remains secure and stable</li>
                     </ul>
                 </div>
             </div>
@@ -260,12 +290,13 @@
             <!-- Service 2 -->
             <div class="service-row">
                 <div class="service-content">
-                    <h2>Workflow Automation Integration</h2>
-                    <p>Connect core client lead endpoints straight into back-office management tracking terminals. Eliminate repetitive manual pipeline steps using native architectural web systems.</p>
+                    <span class="service-badge">Automation</span>
+                    <h2>Simple, Worry-Free Automation</h2>
+                    <p>Let's make running things a breeze. We route your customer inquiries directly into simple backend handlers, giving you a smooth way to capture opportunities without getting buried in tech chores.</p>
                     <ul class="feature-list">
-                        <li>Direct system-to-system terminal webhooks</li>
-                        <li>Clean lead tracking delivery protocols</li>
-                        <li>Zero dependency serverless configurations</li>
+                        <li>Custom submission terminals for clear contact data</li>
+                        <li>Zero bloated extensions or unnecessary background servers</li>
+                        <li>Automated, hands-free cloud updates in real-time</li>
                     </ul>
                 </div>
             </div>
@@ -273,34 +304,8 @@
             <!-- Service 3 -->
             <div class="service-row">
                 <div class="service-content">
-                    <h2>Performance & Search Optimization</h2>
-                    <p>Every line of code is structured to fit exact asset delivery guidelines. This structural compliance guarantees seamless mobile rendering and optimized baseline discoverability indexes.</p>
+                    <span class="service-badge">Design</span>
+                    <h2>Thoughtful, Engaging Visuals</h2>
+                    <p>First impressions matter. We match friendly layout cues with clean, accessible text formatting, putting together spaces where your customers feel genuinely welcomed to look around.</p>
                     <ul class="feature-list">
-                        <li>High performance structural testing metrics</li>
-                        <li>Semantic, accessible core tag structures</li>
-                        <li>Responsive layouts for all modern viewports</li>
-                    </ul>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <h3>Ready to connect your business pipeline?</h3>
-            <p style="color: var(--text-light); margin-bottom: 24px;">Initialize an analysis parameters session with our engineering layout team.</p>
-            <a href="contact.html" class="btn">Connect Terminal</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Top Shelf Websites. All structural rights reserved.</p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                        <li>Soft palettes tailored specifically to your branding goals</li>
