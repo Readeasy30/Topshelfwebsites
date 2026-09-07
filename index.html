@@ -1,91 +1,333 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TopShelf Websites - 30-Day Free Trial</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Shelf Websites | Premium Web Solutions</title>
+    <style>
+        /* Modern Minimalist Reset & Variables */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --text-dark: #334155;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 0 100px 0;
+            background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+            max-width: 800px;
+            margin: 0 auto 24px auto;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Call To Action Buttons */
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--white);
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light);
+            border-color: var(--dark);
+        }
+
+        /* Features/Benefits Grid */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            padding: 40px;
+            border-radius: 12px;
+            background-color: var(--light);
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(15, 23, 42, 0.04);
+        }
+
+        .card h3 {
+            font-size: 20px;
+            color: var(--dark);
+            margin-bottom: 16px;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* Conversion Form Section */
+        .lead-capture {
+            padding: 100px 0;
+            background-color: var(--dark);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .lead-capture h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .lead-capture p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        .form-wrapper {
+            max-width: 480px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            display: flex;
+            gap: 12px;
+        }
+
+        .form-group input {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            font-size: 16px;
+        }
+
+        .form-group input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus {
+            outline: 2px solid var(--primary);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            background-color: var(--white);
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .form-group { flex-direction: column; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
-<body class="bg-zinc-950 text-white">
-  <!-- Hero -->
-  <div class="max-w-5xl mx-auto px-6 pt-16 pb-12 text-center">
-    <div class="inline-block px-4 py-1 bg-zinc-900 rounded-full text-sm mb-6">Trusted by 1,800+ agencies</div>
-    <h1 class="text-6xl font-semibold tracking-tighter">Build &amp; manage client websites<br>at scale.</h1>
-    <p class="mt-4 text-xl text-zinc-400 max-w-xl mx-auto">White-label website platform with built-in CRM, funnels, and client management. Start your 30-day trial today.</p>
-    
-    <div class="mt-8">
-      <a href="#trial" 
-         class="inline-block bg-white text-black px-8 py-4 rounded-xl font-semibold text-lg hover:bg-zinc-200 transition">
-        Start 30-Day Free Trial
-      </a>
-      <p class="text-sm text-zinc-500 mt-3">No credit card required • Cancel anytime</p>
-    </div>
-  </div>
+<body>
 
-  <!-- Trust Bar -->
-  <div class="border-y border-zinc-800 py-6">
-    <div class="max-w-5xl mx-auto px-6 flex justify-center gap-x-12 text-sm text-zinc-400">
-      <div>Featured in Forbes</div>
-      <div>4.9/5 on G2</div>
-      <div>Used by 8-figure agencies</div>
-    </div>
-  </div>
+    <!-- Header Navigation -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">Top Shelf Websites</a>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#get-started">Get Started</a></li>
+            </ul>
+        </div>
+    </header>
 
-  <!-- How it Works -->
-  <div class="max-w-5xl mx-auto px-6 py-16">
-    <h2 class="text-3xl font-semibold text-center mb-10">How it works</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center">
-        <div class="text-4xl mb-4">1</div>
-        <h3 class="font-semibold mb-2">Sign up in 60 seconds</h3>
-        <p class="text-zinc-400">Create your agency account and get instant access.</p>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl mb-4">2</div>
-        <h3 class="font-semibold mb-2">Build your first site</h3>
-        <p class="text-zinc-400">Use our drag-and-drop builder or import from any platform.</p>
-      </div>
-      <div class="text-center">
-        <div class="text-4xl mb-4">3</div>
-        <h3 class="font-semibold mb-2">Invite clients &amp; get paid</h3>
-        <p class="text-zinc-400">White-label everything and manage billing in one place.</p>
-      </div>
-    </div>
-  </div>
+    <!-- Main Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Launch Beautiful, High-Performance Websites Natively</h1>
+            <p>Streamlined architectural systems optimized cleanly for developer workflows, production hosting, and maximum modern delivery speed.</p>
+            <div class="cta-group">
+                <a href="#get-started" class="btn btn-primary">Start Building</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
 
-  <!-- Trial Form -->
-  <div id="trial" class="bg-zinc-900 py-16">
-    <div class="max-w-md mx-auto px-6">
-      <div class="text-center mb-8">
-        <h2 class="text-3xl font-semibold">Start your 30-day trial</h2>
-        <p class="text-zinc-400 mt-2">Full access. No restrictions.</p>
-      </div>
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">Engineered For Rapid Execution</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Edge Integration</h3>
+                    <p>Built directly to pair cleanly with automated edge frameworks for lighting-fast global content asset distribution.</p>
+                </div>
+                <div class="card">
+                    <h3>Modular Scaling</h3>
+                    <p>Structured with structural separation of logic, allowing your business features to expand efficiently over time.</p>
+                </div>
+                <div class="card">
+                    <h3>Conversion Focus</h3>
+                    <p>Designed strictly using baseline growth frameworks optimized to nurture visitors cleanly into active buyers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <form class="space-y-4" onsubmit="submitForm(event)">
-        <input type="text" placeholder="Full name" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3" required>
-        <input type="email" placeholder="Work email" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3" required>
-        <input type="text" placeholder="Agency / Company name" class="w-full bg-zinc-800 border border-zinc-700 rounded-xl px-4 py-3" required>
-        <button type="submit"
-                class="w-full bg-white text-black py-4 rounded-xl font-semibold text-lg hover:bg-zinc-200 transition">
-          Start Free Trial Now
-        </button>
-      </form>
-      <p class="text-center text-xs text-zinc-500 mt-4">We’ll send login details to your email immediately.</p>
-    </div>
-  </div>
+    <!-- Sales & Lead Capture Section -->
+    <section id="get-started" class="lead-capture">
+        <div class="container">
+            <h2>Ready to Initialize Your System?</h2>
+            <p>Enter your email below to get the full strategic workflow manual sent directly to your workspace.</p>
+            <div class="form-wrapper">
+                <form onsubmit="event.preventDefault(); alert('System tracking initialized.');">
+                    <div class="form-group">
+                        <input type="email" placeholder="Enter your business email" required>
+                        <button type="submit" class="btn btn-primary">Initialize Access</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 
-  <script>
-    function submitForm(e) {
-      e.preventDefault();
-      const btn = e.target.querySelector('button');
-      btn.innerHTML = 'Creating your account...';
-      btn.disabled = true;
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Top Shelf Websites. All structural rights reserved.</p>
+        </div>
+    </footer>
 
-      setTimeout(() => {
-        window.location.href = 'https://app.topshelfwebsites.com/welcome'; // Replace with your actual dashboard URL
-      }, 1200);
-    }
-  </script>
 </body>
 </html>
-﻿
+
+
