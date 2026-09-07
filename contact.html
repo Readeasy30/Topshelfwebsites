@@ -5,43 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Top Shelf Websites</title>
     <style>
-        /* Modern Minimalist Reset & Variables */
+        /* Warm & Welcoming Reset & Design Variables */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
         }
 
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --text-dark: #334155;
-            --text-light: #64748b;
+            --primary: #e11d48; /* Warm Rose Accent */
+            --primary-hover: #be123c;
+            --accent: #f59e0b; /* Sunny Warm Gold */
+            --dark: #1e1b4b; /* Deep Cozy Navy */
+            --light: #fffbeb; /* Soft Cream Warm Background */
+            --text-dark: #374151; /* Soft Charcoal */
+            --text-light: #4b5563; /* Warm Muted Gray */
             --white: #ffffff;
-            --border: #e2e8f0;
+            --border: #f3f4f6;
+            --shadow-soft: 0 10px 30px -5px rgba(225, 29, 72, 0.04), 0 8px 20px -6px rgba(0, 0, 0, 0.03);
         }
 
         body {
             background-color: var(--light);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1140px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         /* Navigation Header */
         header {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
+            background-color: rgba(255, 253, 245, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(217, 119, 6, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -52,139 +55,151 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 70px;
+            height: 80px;
         }
 
         .logo {
-            font-size: 20px;
-            font-weight: 700;
+            font-size: 22px;
+            font-weight: 800;
             color: var(--dark);
             text-decoration: none;
             letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "✨";
+            font-size: 18px;
         }
 
         .nav-links {
             display: flex;
-            gap: 32px;
+            gap: 36px;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-light);
-            font-size: 15px;
-            font-weight: 500;
+            font-size: 16px;
+            font-weight: 600;
             transition: color 0.2s ease;
         }
 
         .nav-links a:hover {
-            color: var(--dark);
+            color: var(--primary);
         }
 
         /* Page Hero Section */
         .page-title-section {
-            padding: 160px 0 60px 0;
-            background: linear-gradient(180deg, var(--white) 0%, var(--light) 100%);
+            padding: 180px 0 80px 0;
+            background: radial-gradient(circle at top right, #fff7ed 0%, var(--light) 100%);
             text-align: center;
-            border-bottom: 1px solid var(--border);
         }
 
         .page-title-section h1 {
-            font-size: 40px;
-            font-weight: 800;
+            font-size: 46px;
+            font-weight: 900;
             color: var(--dark);
             letter-spacing: -1px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .page-title-section p {
-            font-size: 18px;
+            font-size: 20px;
             color: var(--text-light);
-            max-width: 600px;
+            max-width: 640px;
             margin: 0 auto;
         }
 
         /* Contact Form Layout */
         .contact-section {
-            padding: 80px 0;
+            padding: 100px 0;
             background-color: var(--white);
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 30px rgba(30, 27, 75, 0.02);
         }
 
         .form-card {
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            background-color: #fffdf9;
+            padding: 50px;
+            border-radius: 32px;
+            border: 1px solid #fef3c7;
+            box-shadow: var(--shadow-soft);
         }
 
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 28px;
         }
 
         .form-group label {
             display: block;
-            font-size: 14px;
-            font-weight: 600;
+            font-size: 15px;
+            font-weight: 700;
             color: var(--dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .form-group input, 
         .form-group textarea {
             width: 100%;
-            padding: 12px 16px;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            background-color: var(--light);
+            padding: 16px 20px;
+            border-radius: 16px;
+            border: 1px solid #e5e7eb;
+            background-color: var(--white);
             color: var(--dark);
             font-size: 16px;
-            transition: border-color 0.2s ease;
+            transition: all 0.25s ease;
         }
 
         .form-group input:focus, 
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(225, 29, 72, 0.1);
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 14px 28px;
-            border-radius: 8px;
+            padding: 16px 36px;
+            border-radius: 50px;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
             background-color: var(--primary);
             color: var(--white);
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
             text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
         .btn:hover {
             background-color: var(--primary-hover);
             border-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(225, 29, 72, 0.3);
         }
 
         /* Footer */
         footer {
-            padding: 40px 0;
+            padding: 50px 0;
             background-color: var(--white);
             border-top: 1px solid var(--border);
             text-align: center;
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-light);
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 768px) {
-            .form-card { padding: 24px; }
+            .form-card { padding: 32px 24px; }
             .nav-links { display: none; }
         }
     </style>
@@ -207,8 +222,8 @@
     <!-- Page Title -->
     <section class="page-title-section">
         <div class="container">
-            <h1>Initialize Consultation</h1>
-            <p>Connect your business systems directly with modern static architecture deployments.</p>
+            <h1>Say Hello</h1>
+            <p>Have an upcoming idea or a project you need help getting off the ground? Let's sit down and discuss it together.</p>
         </div>
     </section>
 
@@ -216,24 +231,24 @@
     <section class="contact-section">
         <div class="container">
             <div class="form-card">
-                <form onsubmit="event.preventDefault(); alert('Lead transmission successful.');">
+                <form onsubmit="event.preventDefault(); alert('Thanks for reaching out! We\'ll speak soon.');">
                     
                     <div class="form-group">
-                        <label for="name">Business Contact Name</label>
-                        <input type="text" id="name" placeholder="John Doe" required>
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Let us know who you are..." required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Workspace Email Address</label>
-                        <input type="email" id="email" placeholder="name@company.com" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Where can we reply back to?..." required>
                     </div>
 
                     <div class="form-group">
-                        <label for="project">System Requirements Summary</label>
-                        <textarea id="project" rows="5" placeholder="Describe your operational or web project infrastructure parameters..." required></textarea>
+                        <label for="project">Tell us about your project</label>
+                        <textarea id="project" rows="5" placeholder="Share a few details about what you want to create or automate..." required></textarea>
                     </div>
 
-                    <button type="submit" class="btn">Connect Intake Terminal</button>
+                    <button type="submit" class="btn">Send message</button>
                 </form>
             </div>
         </div>
@@ -242,7 +257,7 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2026 Top Shelf Websites. All structural rights reserved.</p>
+            <p>&copy; 2026 Top Shelf Websites. Made with care for your business success.</p>
         </div>
     </footer>
 
