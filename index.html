@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Shelf Websites | Premium Web Solutions</title>
+    <title>Services | Top Shelf Websites</title>
     <style>
         /* Warm & Welcoming Reset & Design Variables */
         * {
@@ -17,7 +17,7 @@
             --primary: #e11d48; /* Warm Rose Accent */
             --primary-hover: #be123c;
             --accent: #f59e0b; /* Sunny Warm Gold */
-            --dark: #1e1b4b; /* Deep Cozy Navy instead of pitch black */
+            --dark: #1e1b4b; /* Deep Cozy Navy */
             --light: #fffbeb; /* Soft Cream Warm Background */
             --text-dark: #374151; /* Soft Charcoal */
             --text-light: #4b5563; /* Warm Muted Gray */
@@ -42,21 +42,20 @@
 
         /* Navigation Header */
         header {
-            background-color: rgba(255, 253, 245, 0.85); /* Tinted transparent cream */
+            background-color: rgba(255, 253, 245, 0.85);
             backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(217, 119, 6, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s ease;
         }
 
         .nav-wrapper {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80px; /* Slightly taller for breathing room */
+            height: 80px;
         }
 
         .logo {
@@ -71,7 +70,7 @@
         }
 
         .logo::before {
-            content: "✨"; /* Subtle visual anchor */
+            content: "✨";
             font-size: 18px;
         }
 
@@ -93,199 +92,137 @@
             color: var(--primary);
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 180px 0 120px 0;
+        /* Page Hero Section */
+        .page-title-section {
+            padding: 180px 0 80px 0;
             background: radial-gradient(circle at top right, #fff7ed 0%, var(--light) 100%);
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 52px;
+        .page-title-section h1 {
+            font-size: 46px;
             font-weight: 900;
             color: var(--dark);
-            line-height: 1.25;
-            max-width: 850px;
-            margin: 0 auto 28px auto;
-            letter-spacing: -1.5px;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
         }
 
-        .hero p {
+        .page-title-section p {
             font-size: 20px;
             color: var(--text-light);
             max-width: 640px;
-            margin: 0 auto 44px auto;
+            margin: 0 auto;
         }
 
-        /* Friendly Rounded Buttons */
-        .cta-group {
+        /* Services Content Section */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--white);
+            border-radius: 40px 40px 0 0;
+            box-shadow: 0 -10px 30px rgba(30, 27, 75, 0.02);
+        }
+
+        .service-row {
             display: flex;
-            gap: 16px;
-            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-row:last-child {
+            border-bottom: none;
+        }
+
+        .service-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background-color: #fff7ed;
+            color: var(--accent);
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            border: 1px solid #fef3c7;
+        }
+
+        .service-content h2 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+            font-weight: 800;
+        }
+
+        .service-content p {
+            color: var(--text-dark);
+            margin-bottom: 28px;
+            font-size: 17px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 16px;
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        .feature-list li::before {
+            content: "🌸"; /* Softer, friendlier visual bullet */
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 1px;
+        }
+
+        /* Friendly Banner */
+        .cta-banner {
+            padding: 100px 0;
+            background-color: var(--light);
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .cta-banner h3 {
+            font-size: 32px;
+            color: var(--dark);
+            margin-bottom: 16px;
+            font-weight: 800;
         }
 
         .btn {
             display: inline-block;
             padding: 16px 36px;
-            border-radius: 50px; /* Fully pill-shaped for a friendly feel */
+            border-radius: 50px;
             font-size: 16px;
             font-weight: 700;
             text-decoration: none;
             transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-primary {
             background-color: var(--primary);
             color: var(--white);
             border: 2px solid var(--primary);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        .btn-primary:hover {
+        .btn:hover {
             background-color: var(--primary-hover);
             border-color: var(--primary-hover);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px -5px rgba(225, 29, 72, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: var(--white);
-            color: var(--dark);
-            border: 2px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            background-color: #fff7ed;
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Features/Benefits Section */
-        .features {
-            padding: 120px 0;
-            background-color: var(--white);
-            border-radius: 40px 40px 0 0; /* Smooth structural section curve */
-            position: relative;
-            z-index: 10;
-            box-shadow: 0 -10px 30px rgba(30, 27, 75, 0.02);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 36px;
-            font-weight: 800;
-            color: var(--dark);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 18px;
-            max-width: 500px;
-            margin: 0 auto 64px auto;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-        }
-
-        .card {
-            padding: 44px;
-            border-radius: 24px; /* Inviting rounded borders */
-            background-color: #fffdf9;
-            border: 1px solid #fef3c7;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: var(--shadow-soft);
-        }
-
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.15);
-        }
-
-        .card-icon {
-            font-size: 32px;
-            margin-bottom: 20px;
-            display: inline-block;
-        }
-
-        .card h3 {
-            font-size: 22px;
-            color: var(--dark);
-            margin-bottom: 16px;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: var(--text-light);
-            font-size: 16px;
-        }
-
-        /* Warm Welcoming Lead Capture Section */
-        .lead-capture {
-            padding: 120px 0;
-            background: linear-gradient(135deg, var(--dark) 0%, #1e1e2f 100%);
-            color: var(--white);
-            text-align: center;
-            border-radius: 40px 40px 0 0;
-        }
-
-        .lead-capture h2 {
-            font-size: 40px;
-            font-weight: 800;
-            margin-bottom: 20px;
-            letter-spacing: -0.5px;
-        }
-
-        .lead-capture p {
-            color: #cbd5e1;
-            margin-bottom: 44px;
-            font-size: 18px;
-            max-width: 550px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .form-wrapper {
-            max-width: 520px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            display: flex;
-            gap: 16px;
-            background-color: rgba(255, 255, 255, 0.08);
-            padding: 8px;
-            border-radius: 100px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .form-group input {
-            flex: 1;
-            padding: 14px 24px;
-            border-radius: 100px;
-            border: none;
-            background: transparent;
-            color: var(--white);
-            font-size: 16px;
-        }
-
-        .form-group input::placeholder {
-            color: #94a3b8;
-        }
-
-        .form-group input:focus {
-            outline: none;
-        }
-
-        .form-group .btn-primary {
-            padding: 14px 32px;
         }
 
         /* Footer */
@@ -298,19 +235,12 @@
             color: var(--text-light);
         }
 
-        /* Responsive Breakpoints */
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 38px; }
-            .form-group { 
-                flex-direction: column; 
-                background: transparent;
-                border: none;
-                padding: 0;
-                gap: 12px;
-            }
-            .form-group input {
-                background-color: rgba(255, 255, 255, 0.08);
-                border: 1px solid rgba(255, 255, 255, 0.15);
+            .service-row, .service-row:nth-child(even) {
+                flex-direction: column;
+                gap: 40px;
+                padding: 40px 0;
             }
             .nav-links { display: none; }
         }
@@ -331,17 +261,52 @@
         </div>
     </header>
 
-    <!-- Main Hero -->
-    <section class="hero">
+    <!-- Page Title -->
+    <section class="page-title-section">
         <div class="container">
-            <h1>We build beautiful, high-performing websites that just work.</h1>
-            <p>A friendly, modern approach to launching your online presence with speed, care, and absolute peace of mind.</p>
-            <div class="cta-group">
-                <a href="contact.html" class="btn btn-primary">Let's Get Started</a>
-                <a href="services.html" class="btn btn-secondary">See Our Work</a>
-            </div>
+            <h1>What We Do Best</h1>
+            <p>We combine clean engineering with thoughtful design to build beautiful tools that take your business to the next level.</p>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="container">
+            
+            <!-- Service 1 -->
+            <div class="service-row">
+                <div class="service-content">
+                    <span class="service-badge">Performance</span>
+                    <h2>Beautiful Sites That Load Instantly</h2>
+                    <p>Nobody likes to wait on a loading screen. We build blazing-fast static sites hosted directly at the network edge, giving your visitors a seamless, immediate browsing experience every time.</p>
+                    <ul class="feature-list">
+                        <li>Global cloud delivery networks for peak responsiveness</li>
+                        <li>Sleek formatting optimized for perfect mobile display</li>
+                        <li>Sturdy architecture that remains secure and stable</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-row">
+                <div class="service-content">
+                    <span class="service-badge">Automation</span>
+                    <h2>Simple, Worry-Free Automation</h2>
+                    <p>Let's make running things a breeze. We route your customer inquiries directly into simple backend handlers, giving you a smooth way to capture opportunities without getting buried in tech chores.</p>
+                    <ul class="feature-list">
+                        <li>Custom submission terminals for clear contact data</li>
+                        <li>Zero bloated extensions or unnecessary background servers</li>
+                        <li>Automated, hands-free cloud updates in real-time</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-row">
+                <div class="service-content">
+                    <span class="service-badge">Design</span>
+                    <h2>Thoughtful, Engaging Visuals</h2>
+                    <p>First impressions matter. We match friendly layout cues with clean, accessible text formatting, putting together spaces where your customers feel genuinely welcomed to look around.</p>
+                    <ul class="feature-list">
+                        <li>Soft palettes tailored specifically to your branding goals</li>
+
