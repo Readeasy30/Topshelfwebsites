@@ -1,1 +1,0 @@
-Workaround confirmed. Writing directly from local terminal instead of the broken connector.
